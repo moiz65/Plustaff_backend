@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const { getPakistanISO } = require('./utils/timezone');
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Server is running',
-    timestamp: new Date().toISOString()
+    timestamp: getPakistanISO()
   });
 });
 
